@@ -16,3 +16,4 @@ dist
 /.settings
 /bin/
 db.sql
+**/Thumbs.db
