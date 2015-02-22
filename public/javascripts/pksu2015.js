@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
         $("body").on("click", ".deleteItem", function() {
-          id = this.id
-    	  $.get(jsRoutes.controllers.Application.deleteItem(id).url, {}, 
+          var listItem = this
+    	  $.get(jsRoutes.controllers.Application.deleteItem(listItem.id).url, {}, 
             function(data) {
-    		  $("#"+id).parent().remove();
+    		  $(listItem).parent().remove();
             });
         });
 
@@ -19,7 +19,7 @@ $(document).ready(function() {
           var name = $("#myFormTextInput").val();
           $.getJSON(jsRoutes.controllers.Application.createItem(name).url, {}, 
             function(data) {
-        	  var listItem = $("<li>" + name + " <a class=\"deleteItem\" href=\"#\" id=\"" + data.id + "\">X</a></li>");
+        	  var listItem = $("<li>" + data.name + " <a class=\"deleteItem\" href=\"#\" id=\"" + data.id + "\">X</a></li>");
               $("#myList").append(listItem);
               $("#myFormTextInput").val("");
               $("#myFormTextInput").focus();

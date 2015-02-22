@@ -1,6 +1,7 @@
 logs
 project/project
 project/target
+conf/evolutions
 target
 tmp
 .history
@@ -14,3 +15,4 @@ dist
 /RUNNING_PID
 /.settings
 /bin/
+db.sql
