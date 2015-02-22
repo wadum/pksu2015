@@ -1,8 +1,11 @@
 $(document).ready(function() {
 
-        //$(".deleteItem").click(function(){
         $("body").on("click", ".deleteItem", function() {
-          $(this).parent().remove();
+          id = this.id
+    	  $.get(jsRoutes.controllers.Application.deleteItem(id).url, {}, 
+            function(data) {
+    		  $("#"+id).parent().remove();
+            });
         });
 
         $("body").on("mouseover", ".deleteItem", function() {
@@ -14,10 +17,13 @@ $(document).ready(function() {
 
         $("#myFormSubmit").click(function(){
           var name = $("#myFormTextInput").val();
-          var listItem = $("<li>" + name + " <a class=\"deleteItem\" href=\"#\">X</a></li>");
-          $("#myList").append(listItem);
-          $("#myFormTextInput").val("");
-          $("#myFormTextInput").focus();
+          $.get(jsRoutes.controllers.Application.createItem(name).url, {}, 
+            function(data) {
+        	  var listItem = $("<li>" + name + " <a class=\"deleteItem\" href=\"#\">X</a></li>");
+              $("#myList").append(listItem);
+              $("#myFormTextInput").val("");
+              $("#myFormTextInput").focus();
+            });
         });
 
       });

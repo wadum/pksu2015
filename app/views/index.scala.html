@@ -1,4 +1,4 @@
-@()
+@(items: List[Item])
 
 <!DOCTYPE html>
 <html>
@@ -6,6 +6,7 @@
     <title>Test</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="@routes.Assets.at("stylesheets/style.css")" rel="stylesheet" type="text/css" media="all" />
+    <script src="@routes.Application.jsRoutes()"></script>
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script src="@routes.Assets.at("javascripts/pksu2015.js")"></script>
   </head>
@@ -14,13 +15,11 @@
     <div id="listContainer">
       <h1>Huskeliste</h1>
       <ul id="myList" class="myUnorderedList">
-        <li>Liste <a class="deleteItem" href="#">X</a></li>
-        <li>Liste <a class="deleteItem" href="#">X</a></li>
-        <li>Liste <a class="deleteItem" href="#">X</a></li>
-        <li>Liste <a class="deleteItem" href="#">X</a></li>
-        <li>Liste <a class="deleteItem" href="#">X</a></li>
+      @for(item <- items){
+      		<li>@item.name <a class="deleteItem" href="#" id="@item.id">X</a></li>
+      }
       </ul>
-
+      
       <input id="myFormTextInput" type="text"></input>
       <input id="myFormSubmit" type="submit"></input>
       

@@ -4,6 +4,9 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+GET     /item/create/:name/          controllers.Application.createItem(name: String)
+GET     /item/:id/delete/           controllers.Application.deleteItem(id: Integer)
 
 # Map static resources from the /public folder to the /assets URL path
+GET     /assets/javascripts/routes  controllers.Application.jsRoutes()
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
