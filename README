@@ -1,0 +1,6 @@
+TODO: Skriv README
+
+Installér postgresql med en bruger kaldet postgres samt password private111.
+Password er skrevet i conf/application.conf, så hvis i vil bruge et andet password er det her i skal ændre det. Jeg har valgt et ofte anvendt default password.
+
+For at køre projektet skal i bruge en terminal. Naviger til roden og skriv "activator run". Første gang koden køres vil der blive hentet en hel del java pakker, hvilket kan tage noget tid.
