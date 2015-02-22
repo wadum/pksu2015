@@ -17,9 +17,9 @@ $(document).ready(function() {
 
         $("#myFormSubmit").click(function(){
           var name = $("#myFormTextInput").val();
-          $.get(jsRoutes.controllers.Application.createItem(name).url, {}, 
+          $.getJSON(jsRoutes.controllers.Application.createItem(name).url, {}, 
             function(data) {
-        	  var listItem = $("<li>" + name + " <a class=\"deleteItem\" href=\"#\">X</a></li>");
+        	  var listItem = $("<li>" + name + " <a class=\"deleteItem\" href=\"#\" id=\"" + data.id + "\">X</a></li>");
               $("#myList").append(listItem);
               $("#myFormTextInput").val("");
               $("#myFormTextInput").focus();

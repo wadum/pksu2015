@@ -6,6 +6,7 @@ import models.Item;
 
 import com.avaje.ebean.*;
 
+import play.libs.Json;
 import play.mvc.*;
 import views.html.*;
 
@@ -20,7 +21,7 @@ public class Application extends Controller {
     	Item item = new Item();
     	item.name = name;
     	Ebean.save(item);
-    	return ok();
+    	return ok(Json.toJson(item));
     }
     
     public static Result deleteItem(Integer id){
