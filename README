@@ -1,5 +1,13 @@
-For at køre projektet skal i bruge en terminal. 
+For at køre projektet skal i bruge en terminal. Naviger til roden og kør:
 
-Naviger til roden og skriv "activator run". 
+Linux/OSX
 
-Første gang koden køres vil der blive hentet en hel del java pakker, hvilket kan tage noget tid.
+$ ./activator run
+
+Windows
+
+activator run
+
+
+
+Første gang severen startes vil der blive hentet en hel del java pakker, hvilket vil tage en del tid.
